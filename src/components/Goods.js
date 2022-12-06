@@ -1,24 +1,15 @@
 import React, { PureComponent } from "react";
 import "../styles.css";
 import store from "../redux/reducers/store";
-
+import { connect } from "react-redux";
 import GoodsItem from './GoodsItem';
 
-
-
-export default class Goods extends PureComponent {
-  state = {
-    goods: [],
-  }
-  componentDidMount() {
-    const globalStore = store.getState();
-    this.setState({ goods: globalStore.goods });
-  }
+class Goods extends PureComponent {
   render() {
     return (
       <div className="goods">
         <h2 className="goods__title">Video Games</h2>
-        {this.state.goods.map(item => (
+        {this.props.goods.map(item => (
           <ul className="goods__list" key={item.id}>
             <li className="goods__list-item">
               <GoodsItem {...item} />
@@ -29,3 +20,11 @@ export default class Goods extends PureComponent {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+      goods: state.goods
+  }
+};
+
+export default connect(mapStateToProps)(Goods);

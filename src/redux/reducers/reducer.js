@@ -32,7 +32,6 @@ function reducer(state=initialState, action) {
           cart
         }
       }
-    
     return state;
 }
 
