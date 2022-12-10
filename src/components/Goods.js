@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import "../styles.css";
-import store from "../redux/reducers/store";
 import { connect } from "react-redux";
 import GoodsItem from './GoodsItem';
 

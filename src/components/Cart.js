@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import "../styles.css";
 import store from "../redux/reducers/store";
 import CartItem from './CartItem';
+import { connect } from "react-redux";
 
 class Cart extends PureComponent {
   state = {
