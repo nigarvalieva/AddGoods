@@ -1,4 +1,4 @@
-const initialState={
+const initialState = {
     cart: [],
     goods: [
         {
@@ -21,18 +21,24 @@ const initialState={
         }
     ]
 }
-function reducer(state=initialState, action) {
-    if (action.type === 'ADD_GOOD_TO_CART') {
-        const good = state.goods.find(item => 
-    item.id === action.payload.id);
-        const cart = [ ...state.cart, good ];
-    
-        return {
-          ...state,
-          cart
-        }
-      }
+export default function reducer(state = initialState, action) {
+    switch (action.type) {
+        case ('ADD_GOOD_TO_CART'):
+            const good = state.goods.find(item =>
+                item.id === action.payload.id);
+            const cart = [...state.cart, good];
+            return {
+                ...state,
+                cart
+            }
+        case ('DELETE_GOOD_FROM_CARD'):
+            cart = [...state.cart];
+            cart.splice(action.payload.id, 1);
+            return {
+                ...state,
+                cart
+            };
+    }
     return state;
 }
 
-export default reducer;

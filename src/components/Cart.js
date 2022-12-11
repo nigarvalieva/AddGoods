@@ -43,5 +43,10 @@ class Cart extends PureComponent {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    cartGoods: state.cart,
+  }
+};
 
-export default Cart;
+export default connect(mapStateToProps)(Cart);

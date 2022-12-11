@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import store from '../redux/reducers/store';
-import { addGoodToCart } from "../redux/actions/action";
+import {addGoodToCart} from "../redux/actions/action";
 import "../styles.css";
 import { connect } from 'react-redux';
 
@@ -16,6 +16,7 @@ class GoodsItem extends PureComponent {
   addToCardHandler = (id) => {
     store.dispatch(addGoodToCart(id));
   }
+  
   render() {
     const { title, description, price, id } = this.props;
     
